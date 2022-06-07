@@ -5,12 +5,13 @@
 Summary:	Tools for debuginfo creation
 Name:		debugedit
 Version:	5.0
-Release:	1
+Release:	2
 License:	GPL v2/LGPL
 Group:		Applications
 Source0:	https://sourceware.org/ftp/debugedit/%{version}/%{name}-%{version}.tar.xz
 # Source0-md5:	9961a1ae59b6417d27e3a646dc4078b7
 Patch0:		0001-tests-Handle-zero-directory-entry-in-.debug_line-DWA.patch
+Patch1:		no-exe-for-elf-debuginfo.patch
 URL:		https://sourceware.org/debugedit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -37,6 +38,7 @@ in DWARF data for debugging, tracing and profiling.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
