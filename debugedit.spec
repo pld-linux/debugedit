@@ -17,6 +17,8 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	elfutils-devel
 BuildRequires:	help2man
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	awk
 Requires:	binutils
 Requires:	coreutils
