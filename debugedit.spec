@@ -5,13 +5,12 @@
 Summary:	Tools for debuginfo creation
 Summary(pl.UTF-8):	Narzędzia do tworzenia plików z danymi dla debuggerów
 Name:		debugedit
-Version:	5.0
-Release:	5
+Version:	5.1
+Release:	1
 License:	GPL v3+, GPL v2+
 Group:		Development/Tools
-Source0:	https://sourceware.org/ftp/debugedit/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	9961a1ae59b6417d27e3a646dc4078b7
-Patch0:		0001-tests-Handle-zero-directory-entry-in-.debug_line-DWA.patch
+Source0:	https://sourceware.org/pub/debugedit/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	25b796b3998d3c33aedcac2216f34dd9
 Patch1:		no-exe-for-elf-debuginfo.patch
 Patch2:		builddir-readlink.patch
 URL:		https://sourceware.org/debugedit/
@@ -21,6 +20,7 @@ BuildRequires:	elfutils-devel
 BuildRequires:	help2man
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	xxHash-devel
 BuildRequires:	xz
 Requires:	awk
 Requires:	binutils
@@ -47,9 +47,8 @@ profilowania oprogramowania.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P 1 -p1
+%patch -P 2 -p1
 
 %build
 %{__aclocal}

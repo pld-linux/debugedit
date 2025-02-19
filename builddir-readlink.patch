@@ -11,7 +11,7 @@
    if [ "$no_recompute_build_id" = "true" ]; then
      no_recompute="-n"
 @@ -398,6 +400,11 @@
-     $strict && exit 2
+     $strict && return 2
    fi
  
 +  if [ ! -s "$SOURCEFILE" ]; then
