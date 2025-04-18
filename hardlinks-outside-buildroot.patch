@@ -1,0 +1,11 @@
+--- debugedit-5.1/scripts/find-debuginfo.in.orig	2025-04-18 15:00:26.896666412 +0200
++++ debugedit-5.1/scripts/find-debuginfo.in	2025-04-18 15:01:48.086666415 +0200
+@@ -543,7 +543,7 @@
+ 
+   # If this file has multiple links, make the corresponding .debug files
+   # all links to one file too.
+-  if [ $nlinks -gt 1 ]; then
++  if [ $nlinks -gt 1 ] && [ -f "$temp/linked" ]; then
+     grep "^$inum " "$temp/linked" | while read inum linked; do
+       link=$debugfn
+       get_debugfn "$linked"
