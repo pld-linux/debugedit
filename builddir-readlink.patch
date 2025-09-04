@@ -19,6 +19,6 @@
 +    $strict && exit 2
 +  fi
 +
-   # Add .gdb_index if requested.
-   if $include_gdb_index; then
-     if type gdb-add-index >/dev/null 2>&1; then
+   $verbose && echo found $(tr -dc '\0' < "$SOURCEFILE" | wc -c) source files
+   
+   # debugedit makes sure to to get write permission to the file and
