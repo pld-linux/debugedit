@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests	# build without tests
+%bcond_without	tests	# test suite
 #
 Summary:	Tools for debuginfo creation
 Summary(pl.UTF-8):	Narzędzia do tworzenia plików z danymi dla debuggerów
@@ -17,21 +17,23 @@ Patch2:		builddir-readlink.patch
 URL:		https://sourceware.org/debugedit/
 BuildRequires:	autoconf >= 1.69
 BuildRequires:	automake >= 1:1.11
+%{?with_tests:BuildRequires:	dwz >= 0.16}
 BuildRequires:	elfutils-devel
 %{?with_tests:BuildRequires:	gdb}
 BuildRequires:	help2man
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	xxHash-devel
+BuildRequires:	xxHash-devel >= 0.8.0
 BuildRequires:	xz
 Requires:	awk
 Requires:	binutils
 Requires:	coreutils
-Requires:	dwz
+Requires:	dwz >= 0.16
 Requires:	elfutils
 Requires:	findutils
 Requires:	grep
 Requires:	sed
+Requires:	xxHash >= 0.8.0
 Requires:	xz
 Suggests:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
