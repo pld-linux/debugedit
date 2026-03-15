@@ -5,17 +5,17 @@
 Summary:	Tools for debuginfo creation
 Summary(pl.UTF-8):	Narzędzia do tworzenia plików z danymi dla debuggerów
 Name:		debugedit
-Version:	5.2
+Version:	5.3
 Release:	1
 License:	GPL v3+, GPL v2+
 Group:		Development/Tools
 Source0:	https://sourceware.org/pub/debugedit/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	203f134fff592d80c413ed74b087b5c6
+# Source0-md5:	905ddadc6cd82d275ee2250311d4b609
 Patch0:		hardlinks-outside-buildroot.patch
 Patch1:		no-exe-for-elf-debuginfo.patch
 Patch2:		builddir-readlink.patch
 URL:		https://sourceware.org/debugedit/
-BuildRequires:	autoconf >= 1.69
+BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.11
 %{?with_tests:BuildRequires:	dwz >= 0.16}
 BuildRequires:	elfutils-devel
@@ -78,8 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/debugedit
+%attr(755,root,root) %{_bindir}/debugedit-classify-ar
 %attr(755,root,root) %{_bindir}/find-debuginfo
 %attr(755,root,root) %{_bindir}/sepdebugcrcfix
 %{_mandir}/man1/debugedit.1*
+%{_mandir}/man1/debugedit-classify-ar.1*
 %{_mandir}/man1/find-debuginfo.1*
 %{_mandir}/man1/sepdebugcrcfix.1*
