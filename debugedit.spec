@@ -6,7 +6,7 @@ Summary:	Tools for debuginfo creation
 Summary(pl.UTF-8):	Narzędzia do tworzenia plików z danymi dla debuggerów
 Name:		debugedit
 Version:	5.3
-Release:	1
+Release:	2
 License:	GPL v3+, GPL v2+
 Group:		Development/Tools
 Source0:	https://sourceware.org/pub/debugedit/%{version}/%{name}-%{version}.tar.xz
