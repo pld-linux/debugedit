@@ -21,13 +21,16 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	elfutils-devel
 %{?with_tests:BuildRequires:	gdb}
 BuildRequires:	help2man
+%{?with_tests:BuildRequires:	libstdc++-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xxHash-devel >= 0.8.0
 BuildRequires:	xz
+Requires:	/usr/bin/gdb-add-index
 Requires:	awk
 Requires:	binutils
 Requires:	coreutils
+Requires:	cpio
 Requires:	dwz >= 0.16
 Requires:	elfutils
 Requires:	findutils
@@ -60,6 +63,11 @@ profilowania oprogramowania.
 %{__autoconf}
 %{__automake}
 %configure \
+	HAS_CPIO=yes \
+	HAS_EU_ELFLINT=yes \
+	HAS_EU_STRIP=yes \
+	HAS_GDB_ADD_INDEX=yes \
+	HAS_XZ=yes \
 	--disable-silent-rules
 %{__make}
 
